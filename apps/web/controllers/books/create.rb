@@ -1,3 +1,4 @@
+# apps/web/controllers/books/create.rb
 module Web
   module Controllers
     module Books
@@ -5,6 +6,9 @@ module Web
         include Web::Action
 
         def call(params)
+          BookRepository.new.create(params[:book])
+
+          redirect_to '/books'
         end
       end
     end
